@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Activities</h1>
+    
+    <!-- Filter Section -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form method="get" class="d-flex">
+                <select name="activity_type" class="form-select me-2" onchange="this.form.submit()">
+                    <option value="">All Activity Types</option>
+                    {% for value, label in activity_types %}
+                        <option value="{{ value }}" {% if value == selected_type %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Activities Grid -->
+    <div class="row">
+        {% for activity in activities %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if activity.image_url %}
+                <img src="{{ activity.image_url }}" class="card-img-top" alt="{{ activity.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ activity.name }}</h5>
+                    <p class="card-text">
+                        <strong>Location:</strong> {{ activity.city }}<br>
+                        <strong>Type:</strong> {{ activity.get_activity_type_display }}<br>
+                        <strong>Date:</strong> {{ activity.activity_date|date:"F j, Y, g:i a" }}<br>
+                        <strong>Price:</strong> ${{ activity.price }}<br>
+                        <strong>Available Spots:</strong> {{ activity.available_spots }}<br>
+                        <strong>Description:</strong> {{ activity.description|truncatewords:30 }}
+                    </p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No activities available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+<select name="activity_type" class="form-select me-2" onchange="this.form.submit()">
+    <option value="">All Activity Types</option>
+    {% for value, label in activity_types %}
+        <option value="{{ value }}" {% if value == selected_type %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+</select>

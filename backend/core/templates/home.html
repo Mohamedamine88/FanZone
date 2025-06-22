@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-section mb-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to FanZone</h1>
+        <p class="lead">Your one-stop destination for CAN 2025 and World Cup 2030 travel packages</p>
+        <a href="{% url 'packages' %}" class="btn btn-primary btn-lg">Explore Packages</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Flights">
+            <div class="card-body">
+                <h5 class="card-title">Flights</h5>
+                <p class="card-text">Book your flights to Morocco for the matches.</p>
+                <a href="{% url 'flights' %}" class="btn btn-primary">View Flights</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Hotels">
+            <div class="card-body">
+                <h5 class="card-title">Hotels</h5>
+                <p class="card-text">Find the perfect accommodation for your stay.</p>
+                <a href="{% url 'hotels' %}" class="btn btn-primary">View Hotels</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Match Tickets">
+            <div class="card-body">
+                <h5 class="card-title">Match Tickets</h5>
+                <p class="card-text">Secure your tickets for the matches.</p>
+                <a href="{% url 'match_tickets' %}" class="btn btn-primary">View Tickets</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Activities">
+            <div class="card-body">
+                <h5 class="card-title">Activities</h5>
+                <p class="card-text">Discover exciting activities in Morocco.</p>
+                <a href="{% url 'activities' %}" class="btn btn-primary">View Activities</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Packages">
+            <div class="card-body">
+                <h5 class="card-title">Packages</h5>
+                <p class="card-text">Explore our curated travel packages.</p>
+                <a href="{% url 'packages' %}" class="btn btn-primary">View Packages</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

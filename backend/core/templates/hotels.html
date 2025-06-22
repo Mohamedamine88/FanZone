@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Available Hotels</h1>
+    
+    <div class="row">
+        {% for hotel in hotels %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hotel.name }}</h5>
+                    <p class="card-text">
+                        <strong>Location:</strong> {{ hotel.location }}<br>
+                        <strong>Rating:</strong> {{ hotel.rating }} stars<br>
+                        <strong>Price per night:</strong> ${{ hotel.price_per_night }}<br>
+                        <strong>Available rooms:</strong> {{ hotel.available_rooms }}
+                    </p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No hotels available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Match Tickets</h1>
+    
+    <!-- Filter Section -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form method="get" class="d-flex">
+                <select name="match_type" class="form-select me-2" onchange="this.form.submit()">
+                    <option value="">All Match Types</option>
+                    {% for value, label in match_types %}
+                        <option value="{{ value }}" {% if value == selected_type %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% for ticket in tickets %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if ticket.image_url %}
+                <img src="{{ ticket.image_url }}" class="card-img-top" alt="{{ ticket.match_name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ ticket.match_name }}</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> {{ ticket.match_date|date:"F j, Y, g:i a" }}<br>
+                        <strong>Stadium:</strong> {{ ticket.stadium }}<br>
+                        <strong>Type:</strong> {{ ticket.get_match_type_display }}<br>
+                        <strong>Price:</strong> ${{ ticket.price }}<br>
+                        <strong>Available Tickets:</strong> {{ ticket.available_tickets }}
+                    </p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No match tickets available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
