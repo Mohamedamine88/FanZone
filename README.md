@@ -1,4 +1,4 @@
-# FanZone - CAN 2025 & World Cup 2030 Travel Platform
+# FanZone - CAN 2025 & World Cup 2030 travel platform
 
 FanZone is a comprehensive travel booking platform specifically designed for CAN 2025 and World Cup 2030 in Morocco. The platform allows users to book flights, hotels, match tickets, and local activities, with the ability to create complete travel packages.
 
